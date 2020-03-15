@@ -4,5 +4,7 @@ edition = "2018"
 name = "alacritty_new_window_cwd"
 version = "0.1.0"
 
-[dependencies]
-i3ipc = { git = "https://github.com/neon64/i3ipc-rs", version = "0.9.0" }
+[dependencies.i3ipc]
+git = "https://github.com/cjbassi/i3ipc-rs"
+branch = "node/pid"
+features = ["sway-1-1"]

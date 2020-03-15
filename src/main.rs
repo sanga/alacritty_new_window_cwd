@@ -40,7 +40,7 @@ fn try_find_cwd<'a>(node: &'a Node) -> Option<PathBuf> {
     }
 }
 
-fn get_cwd_from_pid(pid: i64) -> io::Result<PathBuf> {
+fn get_cwd_from_pid(pid: i32) -> io::Result<PathBuf> {
     if pid == 0 {
         return Err(io::ErrorKind::InvalidInput.into());
     }
