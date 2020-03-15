@@ -11,10 +11,10 @@ fn main() {
     let root_node = connection.get_tree().expect("couldn't get tree");
     if let Some(path) = try_find_cwd(&root_node) {
         println!("Launching Alacritty at {:?}", path);
-        Command::new("alacritty").args(&["--working-directory", path.to_str().unwrap()]).spawn().unwrap();
+        Command::new("nohup").args(&["alacritty", "--working-directory", path.to_str().unwrap()]).spawn().unwrap();
     } else {
         println!("No cwd found");
-        Command::new("alacritty").spawn().unwrap();
+        Command::new("nohup").args(&["alacritty"]).spawn().unwrap();
     }
 }
 
