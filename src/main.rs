@@ -8,7 +8,7 @@ use std::process::Command;
 fn main() {
     // establish a connection to Sway over a unix socket
     let mut connection = I3Connection::connect().expect("couldn't connect to sway socket");
-    let root_node = connection.get_tree().expect("coudln't get tree");
+    let root_node = connection.get_tree().expect("couldn't get tree");
     if let Some(path) = try_find_cwd(&root_node) {
         println!("Launching Alacritty at {:?}", path);
         Command::new("alacritty").args(&["--working-directory", path.to_str().unwrap()]).spawn().unwrap();
